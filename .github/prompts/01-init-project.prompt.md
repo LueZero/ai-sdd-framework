@@ -1,0 +1,74 @@
+---
+description: "Initialize a project for SDD workflow. Analyzes existing codebase, identifies architecture patterns, and generates project context document."
+agent: "sdd-pm"
+argument-hint: "Describe your project or paste the project path"
+---
+
+# Phase 1: 專案初始化
+
+請分析目前的專案，建立完整的專案上下文文件。
+
+## 步驟
+
+### 1. 專案掃描
+- 識別專案的程式語言和框架
+- 分析目錄結構和檔案組織
+- 識別套件管理器和依賴項
+- 檢查已有的 CI/CD 設定
+
+### 2. 架構識別
+- 識別使用的架構模式（MVC、Clean Architecture、Microservices 等）
+- 找出核心模組和它們的職責
+- 識別資料流方向
+- 辨識外部整合（API、資料庫、第三方服務）
+
+### 3. 慣例分析
+- 程式碼風格和命名慣例
+- 測試策略和框架
+- 錯誤處理模式
+- 日誌和監控方式
+
+### 4. 產出專案上下文文件
+
+將分析結果寫入 `docs/sdd/project-context.md`，包含：
+
+```markdown
+# 專案上下文
+
+## 基本資訊
+- 專案名稱：
+- 程式語言：
+- 框架/函式庫：
+- 套件管理器：
+
+## 架構概覽
+- 架構模式：
+- 目錄結構概要：
+- 核心模組：
+
+## 技術棧
+- 前端：
+- 後端：
+- 資料庫：
+- 基礎設施：
+
+## 開發慣例
+- 程式碼風格：
+- 測試框架：
+- 分支策略：
+- 部署方式：
+
+## SDD 配置建議
+- 建議調整的 Instructions：
+- 建議新增的模板：
+- 建議的工作流程：
+```
+
+### 5. 更新編碼規範
+
+根據分析結果，建議更新 `.github/instructions/coding-standards.instructions.md` 以符合專案的技術棧。
+
+## 注意事項
+- 如果是全新專案（無既有程式碼），引導開發者定義技術棧和架構方向
+- 不修改任何既有程式碼，這是純分析階段
+- 如果發現潛在問題（過時依賴、安全風險），記錄在上下文文件中

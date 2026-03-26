@@ -1,0 +1,60 @@
+---
+description: "Use when following SDD development process, creating specifications, implementing features, or reviewing code. Covers the complete Specification-Driven Development lifecycle."
+applyTo: "**"
+---
+
+# SDD 流程規則
+
+## Specification-Driven Development 方法論
+
+所有開發活動必須遵循 SDD 流程。AI 助手在協助開發時，應主動引導開發者遵循以下規則。
+
+## 階段規則
+
+### Phase 1: 初始化
+- 分析既有程式碼結構和技術棧
+- 識別架構模式和設計慣例
+- 產出專案上下文文件
+
+### Phase 2: 規格化
+- 使用 `sdd/templates/feature-spec.tmpl.md` 撰寫規格
+- 必須定義：功能描述、驗收條件、邊界情境、非功能需求
+- 規格文件存放於 `docs/sdd/specs/`
+- 規格須包含明確的範圍界定（做什麼 / 不做什麼）
+
+### Phase 3: 設計
+- 使用 `sdd/templates/system-design.tmpl.md` 撰寫設計
+- 重大技術決策使用 ADR（`sdd/templates/adr.tmpl.md`）
+- 設計須涵蓋：元件圖、資料流、介面定義、錯誤處理策略
+- 設計文件存放於 `docs/sdd/designs/`
+
+### Phase 4: 實作
+- 嚴格依照規格和設計實作
+- 不加入規格外的功能
+- 遵循專案既有的程式碼風格
+- 善用框架和語言的慣用模式
+
+### Phase 5: 測試
+- 依照 `sdd/templates/test-plan.tmpl.md` 撰寫測試計劃
+- 測試覆蓋所有驗收條件和邊界情境
+- 包含正向測試和負向測試
+- 測試計劃存放於 `docs/sdd/test-plans/`
+
+### Phase 6: 審查
+- 對照規格逐項檢查實作完整性
+- 檢查安全性（OWASP Top 10）
+- 檢查效能影響
+- 檢查程式碼可讀性和可維護性
+
+### Phase 7: 迭代
+- 根據審查結果進行修正
+- 更新相關文件
+- 確認所有驗收條件通過
+
+## AI 助手行為準則
+
+- 實作前先確認規格是否存在
+- 發現規格缺漏時，先提醒開發者補充規格
+- 生成程式碼時引用對應的規格段落
+- 不擅自添加規格外的功能或「優化」
+- 遇到不確定的設計決策，建議建立 ADR

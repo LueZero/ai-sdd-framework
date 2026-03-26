@@ -1,0 +1,52 @@
+---
+description: "Write a feature specification following SDD methodology. Creates structured spec with acceptance criteria, boundaries, and data contracts."
+agent: "sdd-pm"
+argument-hint: "Describe the feature you want to specify"
+---
+
+# Phase 2: 撰寫功能規格
+
+根據需求描述，撰寫一份完整的功能規格書。
+
+## 步驟
+
+### 1. 需求釐清
+- 確認功能的核心目的
+- 識別目標使用者/系統
+- 確認功能的觸發條件和前置條件
+- 提問釐清任何模糊之處
+
+### 2. 使用規格範本
+
+參考 [feature-spec.tmpl.md](../../sdd/templates/feature-spec.tmpl.md) 範本撰寫規格書。
+
+### 3. 定義驗收條件
+- 每個驗收條件必須是可測試的
+- 使用 Given/When/Then 格式
+- 涵蓋正常流程、替代流程、異常流程
+
+### 4. 定義邊界
+- 明確列出「做什麼」和「不做什麼」
+- 確認效能要求（回應時間、吞吐量）
+- 確認安全要求（認證、授權、資料保護）
+
+### 5. 定義資料契約
+- 輸入/輸出的資料結構
+- API 介面定義（如適用）
+- 資料驗證規則
+
+### 6. 儲存規格
+
+將規格書存放至 `docs/sdd/specs/SPEC-{編號}-{功能名}.md`
+
+編號規則：`SPEC-001`, `SPEC-002`, ...
+
+## 規格品質檢查
+
+產出規格後，自我檢查：
+- [ ] 每個驗收條件都是可測試的嗎？
+- [ ] 範圍界定清晰嗎？（做什麼 vs 不做什麼）
+- [ ] 資料結構定義完整嗎？
+- [ ] 非功能需求有涵蓋嗎？
+- [ ] 有考慮到邊界情境嗎？
+- [ ] 對現有功能的影響有評估嗎？
