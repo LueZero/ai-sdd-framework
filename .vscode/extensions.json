@@ -1,0 +1,34 @@
+{
+  // ──────────────────────────────────────────────
+  // AI-SDD Framework — 建議安裝的 VS Code 延伸模組
+  // VS Code 會在開啟專案時提示安裝
+  // ──────────────────────────────────────────────
+  "recommendations": [
+    // ★ 必要：GitHub Copilot（核心 AI 功能）
+    "GitHub.copilot",
+
+    // ★ 必要：GitHub Copilot Chat（Agent / Prompt / 對話）
+    "GitHub.copilot-chat",
+
+    // ─ 強烈建議：Git 歷史和視覺化
+    "eamodio.gitlens",
+
+    // ─ 強烈建議：Markdown 預覽（讀規格文件）
+    "yzhang.markdown-all-in-one",
+
+    // ─ 強烈建議：Markdown lint（確保文件品質）
+    "DavidAnson.vscode-markdownlint",
+
+    // ─ 建議：YAML 支援（讀 Prompt/ Agent frontmatter）
+    "redhat.vscode-yaml",
+
+    // ─ 建議：TODO Highlight（追蹤規格中的 TODO）
+    "wayou.vscode-todo-highlight",
+
+    // ─ 建議：EditorConfig（統一編碼格式）
+    "EditorConfig.EditorConfig"
+  ],
+
+  // 不建議安裝的延伸模組（與 Copilot 衝突或重複）
+  "unwantedRecommendations": []
+}

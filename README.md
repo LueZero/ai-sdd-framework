@@ -79,6 +79,7 @@ git submodule add https://github.com/LueZero/ai-sdd-framework.git .ai-sdd
 | Phase 5: 測試 | `/05-write-tests` | `@sdd-developer` | 測試程式碼 + 測試計劃 |
 | Phase 6: 審查 | `/06-review` | `@sdd-reviewer` | 審查報告 |
 | Phase 7: 迭代 | `/07-iterate` | 依需求 | 優化後的程式碼 |
+| **變更管理** | `/08-change-request` | `@sdd-pm` | 變更請求文件（任意階段觸發）|
 
 ## 框架結構
 
@@ -97,7 +98,8 @@ your-project/
 │   │   ├── 04-implement.prompt.md
 │   │   ├── 05-write-tests.prompt.md
 │   │   ├── 06-review.prompt.md
-│   │   └── 07-iterate.prompt.md
+│   │   ├── 07-iterate.prompt.md
+│   │   └── 08-change-request.prompt.md  # 規格變更管理
 │   ├── agents/
 │   │   ├── sdd-architect.agent.md       # 架構師 Agent
 │   │   ├── sdd-developer.agent.md       # 開發者 Agent
@@ -116,30 +118,59 @@ your-project/
 │   │   ├── data-model.tmpl.md
 │   │   ├── system-design.tmpl.md
 │   │   ├── adr.tmpl.md
-│   │   └── test-plan.tmpl.md
+│   │   ├── test-plan.tmpl.md
+│   │   └── change-request.tmpl.md       # 規格變更請求
 │   └── workflows/                       # 工作流指南
 │       ├── new-feature.md
 │       ├── bug-fix.md
 │       ├── refactoring.md
-│       └── spike.md
+│       ├── spike.md
+│       └── change-request.md            # 規格變更管理
 ├── docs/sdd/                            # SDD 產出物（每個專案生成）
 │   ├── specs/
 │   ├── designs/
 │   ├── decisions/
-│   └── test-plans/
+│   ├── test-plans/
+│   └── changes/                         # 變更請求記錄
+├── .vscode/
+│   ├── settings.json                    # VS Code + Copilot 建議設定
+│   └── extensions.json                  # 建議安裝的延伸模組
 └── CLAUDE.md                            # Claude Code 支援（可選）
 ```
 
 ## 工作流類型
 
-框架支援 4 種開發情境，每種有對應的工作流指南：
+框架支援 5 種開發情境，每種有對應的工作流指南：
 
 | 工作流 | 適用情境 | 涵蓋階段 |
-|--------|---------|---------|
+|--------|---------|----------|
 | [新功能開發](sdd/workflows/new-feature.md) | 從零開始的功能 | Phase 1-7 完整流程 |
 | [Bug 修復](sdd/workflows/bug-fix.md) | 生產環境問題 | Phase 2, 4-6 精簡流程 |
 | [重構](sdd/workflows/refactoring.md) | 改善既有程式碼 | Phase 2-3, 4-6 |
 | [技術探索](sdd/workflows/spike.md) | 研究與原型 | Phase 1-3 探索流程 |
+| [規格變更](sdd/workflows/change-request.md) | 開發中途修改規格 | 任意階段觸發 |
+
+## VS Code 設定
+
+### 快速套用設定
+
+框架已包含 `.vscode/settings.json` 和 `.vscode/extensions.json`，複製到你的專案後，VS Code 會：
+
+- 自動提示安裝建議的延伸模組（GitHub Copilot、GitLens 等）
+- 啟用 `.github/copilot-instructions.md` 的全域指引
+- 啟用 `.github/prompts/` 中的 `/` 指令
+- 啟用多 Agent 模式
+
+### 手動套用關鍵設定
+
+如果不想複製整個 `.vscode/` 目錄，至少需要在 VS Code 設定中開啟：
+
+```json
+{
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.promptFiles": true
+}
+```
 
 ## 客製化
 

@@ -9,7 +9,8 @@ docs/sdd/
 ├── specs/          # 功能規格書
 ├── designs/        # 系統設計文件
 ├── decisions/      # 架構決策記錄（ADR）+ Spike 結論
-└── test-plans/     # 測試計劃
+├── test-plans/     # 測試計劃
+└── changes/        # 變更請求（Change Request）
 ```
 
 ## 命名規範
@@ -20,8 +21,7 @@ docs/sdd/
 - 測試計劃：`TEST-{三位數編號}-{功能名稱}.md`
 - Bug 修復：`BUG-{三位數編號}-{描述}.md`
 - 重構：`REFACTOR-{三位數編號}-{描述}.md`
-- 技術探索：`SPIKE-{三位數編號}-{主題}.md`
-
+- 技術探索：`SPIKE-{三位數編號}-{主題}.md`- 變更請求：`CR-{三位數編號}-{描述}.md`
 ## 範例
 
 ```

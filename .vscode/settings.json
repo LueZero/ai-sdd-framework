@@ -1,0 +1,40 @@
+{
+  // ──────────────────────────────────────────────
+  // GitHub Copilot — AI-SDD Framework 建議設定
+  // 複製此檔案到你的專案 .vscode/settings.json
+  // 或合併至既有的 settings.json
+  // ──────────────────────────────────────────────
+
+  // ★ 必要：啟用 .github/copilot-instructions.md
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+  // ★ 必要：啟用 .github/prompts/ 中的 Prompt 檔案（/指令）
+  "chat.promptFiles": true,
+
+  // ★ 必要：啟用 .github/instructions/ 中的指令檔案
+  "github.copilot.chat.codeGeneration.instructions": [],
+
+  // ─ 建議：在新對話開始時顯示建議的 Prompt
+  "chat.promptFilesRecommendations": true,
+
+  // ─ 建議：Copilot 編輯器內嵌提示語言
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  // ─ 建議：在 Agent 模式下允許終端機工具
+  "github.copilot.chat.agent.terminal.enabled": true,
+
+  // ─ 建議：啟用 Copilot Next Edit Suggestions
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  // ─ 選用：指定預設 Copilot Model（可改為 "gpt-4o" 等）
+  // "github.copilot.selectedCompletionModel": "claude-sonnet-4-5",
+
+  // ─ 選用：在 Copilot Chat 中顯示 Agent 選擇器
+  "chat.experimental.agentMode": true,
+
+  // ─ 選用：自動儲存方便讓 Copilot 讀最新狀態
+  "files.autoSave": "onFocusChange",
+
+  // ─ 選用：在工作區載入 .github/ 下的客製化設定
+  "github.copilot.chat.localeOverride": "zh-TW"
+}

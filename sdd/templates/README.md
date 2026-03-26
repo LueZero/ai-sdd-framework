@@ -12,8 +12,7 @@
 | [data-model.tmpl.md](data-model.tmpl.md) | 資料模型設計 | Phase 3: 設計 |
 | [system-design.tmpl.md](system-design.tmpl.md) | 系統設計文件 | Phase 3: 設計 |
 | [adr.tmpl.md](adr.tmpl.md) | 架構決策記錄 | Phase 3: 設計 |
-| [test-plan.tmpl.md](test-plan.tmpl.md) | 測試計劃 | Phase 5: 測試 |
-
+| [test-plan.tmpl.md](test-plan.tmpl.md) | 測試計劃 | Phase 5: 測試 || [change-request.tmpl.md](change-request.tmpl.md) | 規格變更請求 | Phase 8: 變更管理 |
 ## 使用方式
 
 1. 複製範本到對應的 `docs/sdd/` 子目錄

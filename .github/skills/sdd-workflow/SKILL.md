@@ -41,13 +41,14 @@ Phase 7: 迭代   (/07-iterate)
 根據專案狀態選擇起點：
 
 | 狀態 | 起始階段 |
-|------|---------|
+|------|----------|
 | 全新專案 | Phase 1 |
 | 已有專案，新功能 | Phase 2 |
 | 已有規格，需要設計 | Phase 3 |
 | 已有設計，需要實作 | Phase 4 |
 | 已有實作，需要測試 | Phase 5 |
 | 需要 Code Review | Phase 6 |
+| **規格需要變更** | `/08-change-request`（任意階段）|
 
 ### 執行流程
 
@@ -62,6 +63,7 @@ Phase 7: 迭代   (/07-iterate)
 - 設計文件：`docs/sdd/designs/DESIGN-{編號}-{名稱}.md`
 - ADR：`docs/sdd/decisions/ADR-{編號}-{主題}.md`
 - 測試計劃：`docs/sdd/test-plans/TEST-{編號}-{名稱}.md`
+- 變更請求：`docs/sdd/changes/CR-{編號}-{描述}.md`
 - 範本：`sdd/templates/`
 - 工作流指南：`sdd/workflows/`
 
@@ -69,8 +71,8 @@ Phase 7: 迭代   (/07-iterate)
 
 | Agent | 角色 | 適用階段 |
 |-------|------|---------|
-| `@sdd-pm` | 產品經理 | Phase 1, 2 |
-| `@sdd-architect` | 架構師 | Phase 3 |
+| `@sdd-pm` | 產品經理 | Phase 1, 2, 變更管理 |
+| `@sdd-architect` | 架構師 | Phase 3, 變更管理（設計類）|
 | `@sdd-developer` | 開發者 | Phase 4, 5 |
 | `@sdd-reviewer` | 審查者 | Phase 6 |
 
