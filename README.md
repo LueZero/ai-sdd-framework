@@ -4,7 +4,7 @@
 
 ## 什麼是 AI-SDD？
 
-AI-SDD（AI-assisted Specification-Driven Development）是一套開源開發流程框架，透過結構化的規格驅動開發方法論，搭配 GitHub Copilot 的客製化系統（Agents、Prompts、Instructions、Skills），讓 AI 從「隨機回答」變成「按流程執行」。
+AI-SDD（AI-assisted Specification-Driven Development）是一套開源開發流程框架，透過結構化的規格驅動開發方法論，搭配多種 AI 編碼工具（GitHub Copilot、Claude Code、OpenCode）的客製化系統，讓 AI 從「隨機回答」變成「按流程執行」。
 
 **核心理念**：先定義規格，再讓 AI 依規格實作，全程可追蹤、可驗證。
 
@@ -27,7 +27,17 @@ AI-SDD（AI-assisted Specification-Driven Development）是一套開源開發流
 git clone https://github.com/LueZero/ai-sdd-framework.git
 cp -r ai-sdd-framework/.github your-project/
 cp -r ai-sdd-framework/sdd your-project/
-cp ai-sdd-framework/CLAUDE.md your-project/  # 可選：支援 Claude Code
+
+# GitHub Copilot 使用者：以上即可
+
+# Claude Code 使用者：額外複製
+cp ai-sdd-framework/CLAUDE.md your-project/
+cp -r ai-sdd-framework/.claude your-project/
+
+# OpenCode 使用者：額外複製
+cp ai-sdd-framework/AGENTS.md your-project/
+cp ai-sdd-framework/opencode.json your-project/
+cp -r ai-sdd-framework/.opencode your-project/
 
 # 方法二：作為 Git submodule
 git submodule add https://github.com/LueZero/ai-sdd-framework.git .ai-sdd
@@ -85,7 +95,7 @@ git submodule add https://github.com/LueZero/ai-sdd-framework.git .ai-sdd
 
 ```
 your-project/
-├── .github/
+├── .github/                             # GitHub Copilot 配置
 │   ├── copilot-instructions.md          # 全域 AI 行為指引
 │   ├── instructions/
 │   │   ├── sdd-process.instructions.md  # SDD 流程規則
@@ -110,6 +120,40 @@ your-project/
 │           ├── SKILL.md                 # SDD 工作流技能
 │           └── references/
 │               └── sdd-methodology.md   # SDD 方法論參考
+├── .claude/                             # Claude Code 配置
+│   ├── rules/
+│   │   ├── sdd-process.md              # SDD 流程規則
+│   │   ├── coding-standards.md         # 編碼規範
+│   │   └── security.md                 # 安全準則
+│   ├── agents/
+│   │   ├── sdd-pm.md                   # 產品經理 Subagent
+│   │   ├── sdd-architect.md            # 架構師 Subagent
+│   │   ├── sdd-developer.md            # 開發者 Subagent
+│   │   └── sdd-reviewer.md             # 審查者 Subagent
+│   └── skills/
+│       ├── 01-init-project/SKILL.md    # 8 個階段的 Skill
+│       ├── 02-write-spec/SKILL.md
+│       ├── 03-design-system/SKILL.md
+│       ├── 04-implement/SKILL.md
+│       ├── 05-write-tests/SKILL.md
+│       ├── 06-review/SKILL.md
+│       ├── 07-iterate/SKILL.md
+│       └── 08-change-request/SKILL.md
+├── .opencode/                           # OpenCode 配置
+│   ├── agents/
+│   │   ├── sdd-pm.md                   # 產品經理 Agent
+│   │   ├── sdd-architect.md            # 架構師 Agent
+│   │   ├── sdd-developer.md            # 開發者 Agent
+│   │   └── sdd-reviewer.md             # 審查者 Agent
+│   └── commands/
+│       ├── 01-init-project.md          # 8 個階段的 Command
+│       ├── 02-write-spec.md
+│       ├── 03-design-system.md
+│       ├── 04-implement.md
+│       ├── 05-write-tests.md
+│       ├── 06-review.md
+│       ├── 07-iterate.md
+│       └── 08-change-request.md
 ├── sdd/
 │   ├── templates/                       # SDD 文件範本
 │   │   ├── feature-spec.tmpl.md
@@ -132,10 +176,12 @@ your-project/
 │   ├── decisions/
 │   ├── test-plans/
 │   └── changes/                         # 變更請求記錄
-├── .vscode/
-│   ├── settings.json                    # VS Code + Copilot 建議設定
-│   └── extensions.json                  # 建議安裝的延伸模組
-└── CLAUDE.md                            # Claude Code 支援（可選）
+├── CLAUDE.md                            # Claude Code 主要指引
+├── AGENTS.md                            # OpenCode 主要指引
+├── opencode.json                        # OpenCode 配置
+└── .vscode/
+    ├── settings.json                    # VS Code + Copilot 建議設定
+    └── extensions.json                  # 建議安裝的延伸模組
 ```
 
 ## 工作流類型
@@ -195,11 +241,12 @@ your-project/
 
 ## 與其他 AI 工具整合
 
-| 工具 | 支援方式 |
-|------|---------|
-| GitHub Copilot | 完整支援（Instructions + Agents + Prompts + Skills）|
-| Claude Code | 透過 CLAUDE.md 支援 |
-| Cursor | 透過 .cursorrules 支援（可從 copilot-instructions.md 轉換）|
+| 工具 | 支援方式 | 配置位置 |
+|------|---------|---------|
+| GitHub Copilot | 完整支援（Instructions + Agents + Prompts + Skills）| `.github/` |
+| Claude Code | 完整支援（Rules + Subagents + Skills）| `CLAUDE.md` + `.claude/` |
+| OpenCode | 完整支援（Rules + Agents + Commands）| `AGENTS.md` + `.opencode/` + `opencode.json` |
+| Cursor | 透過 .cursorrules 支援（可從 copilot-instructions.md 轉換）| `.cursorrules` |
 
 ## 設計原則
 
